@@ -1,27 +1,55 @@
 import React, { Component } from 'react'
 
 class ToDoList extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            ...props
+        }
+
+        this.toggleChange = this.toggleChange.bind(this)
+    }
+    toggleChange(event) {
+
+        //find student with that id and set checked value to it
+        debugger;
+        for (const each of this.state.todoList) {
+            if (each.id == event.target.value) {
+                each.done = event.target.checked;
+            }
+        }
+
+        this.setState({ todoList: this.state.todoList })
+    }
 
 
+    static getDerivedStateFromProps(props, state) {
+        if (props.todoList.length !== state.todoList.length) {
+            return {
+                todoList: props.todoList
+            };
+        }
+        return null;
+    }
     render() {
-        const content = this.props.todoList.map((item) =>
+        const content = this.state.todoList.map((item) =>
             <div className="text-center" key={item.id}>
-                <li  className="completed">
-                    <div className="form-check">
-                        <label className="form-check-label">
-
+                <li >
+                    <div>
+                        <label className={item.done ? 'completed' : ''} >
                             {item.text}
-                            <i className="input-helper">
-                            </i>
                         </label>
                     </div>
-                    <i className="remove mdi mdi-close-circle-outline">
 
-                    </i>
+                    {item.done ? <button  >remove</button> : <input type="checkbox" className="checkbox"
+                        value={item.id}
+                        checked={item.done}
+                        onChange={this.toggleChange}
+                    />}
+
                 </li>
-
             </div>
-
         );
 
         return (
@@ -29,7 +57,6 @@ class ToDoList extends Component {
                 <ul className="d-flex flex-column-reverse todo-list">
                     {content}
                 </ul>
-
             </div>
         )
     }
