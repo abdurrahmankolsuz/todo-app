@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/jenga/static/css/main.8bcd9d6c.chunk.css",
+    "main.js": "/jenga/static/js/main.948b256b.chunk.js",
+    "main.js.map": "/jenga/static/js/main.948b256b.chunk.js.map",
+    "runtime-main.js": "/jenga/static/js/runtime-main.b99d33d3.js",
+    "runtime-main.js.map": "/jenga/static/js/runtime-main.b99d33d3.js.map",
+    "static/css/2.510409cd.chunk.css": "/jenga/static/css/2.510409cd.chunk.css",
+    "static/js/2.17038d10.chunk.js": "/jenga/static/js/2.17038d10.chunk.js",
+    "static/js/2.17038d10.chunk.js.map": "/jenga/static/js/2.17038d10.chunk.js.map",
+    "index.html": "/jenga/index.html",
+    "precache-manifest.8a9aa4f48bd1fe066a4868d2a6910298.js": "/jenga/precache-manifest.8a9aa4f48bd1fe066a4868d2a6910298.js",
+    "service-worker.js": "/jenga/service-worker.js",
+    "static/css/2.510409cd.chunk.css.map": "/jenga/static/css/2.510409cd.chunk.css.map",
+    "static/css/main.8bcd9d6c.chunk.css.map": "/jenga/static/css/main.8bcd9d6c.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b99d33d3.js",
+    "static/css/2.510409cd.chunk.css",
+    "static/js/2.17038d10.chunk.js",
+    "static/css/main.8bcd9d6c.chunk.css",
+    "static/js/main.948b256b.chunk.js"
+  ]
+}
