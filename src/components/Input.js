@@ -9,8 +9,6 @@ class Input extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.addTodoList = this.addTodoList.bind(this);
         this.clearInput = this.clearInput.bind(this);
         this.addTask = this.addTask.bind(this);
     }
@@ -19,7 +17,7 @@ class Input extends Component {
         this.setState({ value: event.target.value });
     }
 
-    addTask(event){
+    addTask(event) {
         console.log(event.target.value)
         event.preventDefault();
         var val = this.state.value;
@@ -28,17 +26,7 @@ class Input extends Component {
     }
 
     clearInput() {
-        this.setState({ value: ''});
-    }
-
-    addTodoList(event) {
-        alert('Gönderilen değer: ' + this.state.value);
-        event.preventDefault();
-    }
-
-    handleSubmit(event) {
-        alert('Gönderilen değer: ' + this.state.value);
-        event.preventDefault();
+        this.setState({ value: '' });
     }
 
     render() {
@@ -47,7 +35,7 @@ class Input extends Component {
                 <form className="form-group" onSubmit={this.addTask}>
                     <div className="add-items d-flex">
                         <input
-                            type="text" value={this.state.value} onChange={this.handleChange}  
+                            type="text" value={this.state.value} onChange={this.handleChange}
                             onClick={this.clearInput}
                             className="form-control"
                         />

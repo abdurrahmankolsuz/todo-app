@@ -9,11 +9,9 @@ class ToDoList extends Component {
         }
 
         this.toggleChange = this.toggleChange.bind(this)
+        this.removeDone = this.removeDone.bind(this)
     }
     toggleChange(event) {
-
-        //find student with that id and set checked value to it
-        debugger;
         for (const each of this.state.todoList) {
             if (each.id == event.target.value) {
                 each.done = event.target.checked;
@@ -22,7 +20,11 @@ class ToDoList extends Component {
 
         this.setState({ todoList: this.state.todoList })
     }
-
+    removeDone(event) {
+        event.preventDefault();
+        var val = event.target.value;
+        this.props.removeDone(val);
+    }
 
     static getDerivedStateFromProps(props, state) {
         if (props.todoList.length !== state.todoList.length) {
@@ -33,7 +35,7 @@ class ToDoList extends Component {
         return null;
     }
     render() {
-        const content = this.state.todoList.map((item) =>
+        const content = this.props.todoList.map((item) =>
             <div className="text-center" key={item.id}>
                 <li >
                     <div>
@@ -42,11 +44,12 @@ class ToDoList extends Component {
                         </label>
                     </div>
 
-                    {item.done ? <button  >remove</button> : <input type="checkbox" className="checkbox"
-                        value={item.id}
-                        checked={item.done}
-                        onChange={this.toggleChange}
-                    />}
+                    {item.done ? <button className="btn btn-outline-danger btn-sm checkbox" value={item.id} onClick={this.removeDone} >Remove</button> : 
+                        <input type="checkbox" className="checkbox"
+                            value={item.id}
+                            checked={item.done}
+                            onChange={this.toggleChange}
+                        />}
 
                 </li>
             </div>

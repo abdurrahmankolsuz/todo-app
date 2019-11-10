@@ -280,10 +280,26 @@ body {
 }
 
 input[type="radio"],
-input[type="checkbox"] {
+.checkbox {
   box-sizing: border-box;
-  padding: 0
+  padding: 0;
+  margin-left: auto !important
+
 }
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 .list-wrapper ul li .form-check,
 .list-wrapper ul li .form-check .form-check-label,

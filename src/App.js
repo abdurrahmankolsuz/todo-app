@@ -10,11 +10,11 @@ export class App extends Component {
     super(props)
 
     let Todo = [{
-      id: 1, text: "First thing to do", done:true
+      id: 1, text: "First thing to do", done: true
     }, {
-      id: 2, text: "Second thing to do", done:false
+      id: 2, text: "Second thing to do", done: false
     }, {
-      id: 3, text: "Third thing to do",done:false
+      id: 3, text: "Third thing to do", done: false
     }
     ]
 
@@ -23,16 +23,26 @@ export class App extends Component {
     }
 
     this.addTask = this.addTask.bind(this);
+    this.removeDone = this.removeDone.bind(this)
   }
 
 
   addTask(task) {
-    console.log(task)
-    debugger;
     let updatedList = this.state.Todo;
-    let lastElementId = this.state.Todo.slice(-1)[0].id;
-    updatedList.push({ id: ++lastElementId, text: task ,done :false});
+    let lastElementId = this.state.Todo.length > 0 ? this.state.Todo.slice(-1)[0].id : 1;
+    updatedList.push({ id: ++lastElementId, text: task, done: false });
     this.setState({ Todo: updatedList });
+  }
+
+  removeDone(id) {
+    let updatedList = this.state.Todo;
+    for (var i = updatedList.length; i--;) {
+      if (updatedList[i].id == id) {
+        updatedList.splice(i, 1);
+      }
+      this.setState({ Todo: updatedList });
+
+    }
   }
 
   render() {
@@ -44,8 +54,8 @@ export class App extends Component {
               <div className="card px-3">
                 <div className="card-body">
                   <h4 className="card-title">Awesome Todo list</h4>
-                  <Input addTask={this.addTask}/>
-                  <ToDoList todoList={this.state.Todo} />
+                  <Input addTask={this.addTask} />
+                  <ToDoList todoList={this.state.Todo} removeDone={this.removeDone} />
                 </div>
               </div>
             </div>
