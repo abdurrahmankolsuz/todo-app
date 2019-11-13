@@ -8,6 +8,7 @@ class Input extends Component {
             value: 'add something to do later'
         };
 
+        this.inputRef = React.createRef();
         this.handleChange = this.handleChange.bind(this);
         this.clearInput = this.clearInput.bind(this);
         this.addTask = this.addTask.bind(this);
@@ -15,6 +16,11 @@ class Input extends Component {
 
     handleChange(event) {
         this.setState({ value: event.target.value });
+    }
+
+    componentDidMount(){
+        this.inputRef.current.focus();
+
     }
 
     addTask(event) {
@@ -38,6 +44,7 @@ class Input extends Component {
                             type="text" value={this.state.value} onChange={this.handleChange}
                             onClick={this.clearInput}
                             className="form-control"
+                            ref = {this.inputRef}
                         />
                         <button className="add btn btn-primary font-weight-bold todo-list-add-btn"  >Add</button> </div>
                 </form>

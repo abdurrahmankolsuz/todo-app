@@ -44,7 +44,7 @@ class ToDoList extends Component {
                         </label>
                     </div>
 
-                    {item.done ? <button className="btn btn-outline-danger btn-sm checkbox" value={item.id} onClick={this.removeDone} >Remove</button> : 
+                    {item.done ? <button className="btn btn-outline-danger btn-sm checkbox" value={item.id} onClick={this.removeDone} >Remove</button> :
                         <input type="checkbox" className="checkbox"
                             value={item.id}
                             checked={item.done}
