@@ -5,7 +5,7 @@ class Input extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 'add something to do later'
+            value: ''
         };
 
         this.inputRef = React.createRef();
@@ -45,6 +45,7 @@ class Input extends Component {
                             onClick={this.clearInput}
                             className="form-control"
                             ref = {this.inputRef}
+                            placeholder="add something to do later"
                         />
                         <button className="add btn btn-primary font-weight-bold todo-list-add-btn"  >Add</button> </div>
                 </form>
